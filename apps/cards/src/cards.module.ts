@@ -6,6 +6,7 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { CardsProcessor } from './cards.processor';
 import { CardsController } from './cards.controller';
 import { SolicitationService } from 'apps/solicitation/solicitation.service';
+import { AttendantsService } from './attendants.service';
 
 @Module({
   imports: [
@@ -27,6 +28,6 @@ import { SolicitationService } from 'apps/solicitation/solicitation.service';
     })
   ],
   controllers: [CardsController],
-  providers: [CardsProcessor, SolicitationService],
+  providers: [CardsProcessor, SolicitationService, AttendantsService],
 })
 export class CardsModule { }
