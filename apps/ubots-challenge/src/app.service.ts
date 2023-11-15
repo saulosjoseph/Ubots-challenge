@@ -1,16 +1,17 @@
+import { InjectQueue } from '@nestjs/bull';
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import { Queue } from 'bull';
 
 @Injectable()
 export class AppService {
-  constructor(@Inject('CARDS_SERVICE') private cardsClient: ClientProxy) { }
+  constructor(@InjectQueue('cards') private cardsQueue: Queue) { }
 
   getHello(): string {
     return 'Hello World!';
   }
   sendToCardsTeam(body: string): void {
-    console.log(body);
-    this.cardsClient.emit<string>('new_solicitation', body);
+    this.cardsQueue.add({ solicitation: body })
   }
   sendToLoanTeam(): string {
     return 'Hello World!';
