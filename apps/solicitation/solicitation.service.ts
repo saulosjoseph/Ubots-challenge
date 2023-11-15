@@ -1,6 +1,6 @@
-import { Job, Queue } from 'bull';
+import { Queue } from 'bull';
 import { Cache } from 'cache-manager';
-import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Solicitation } from './solicitation.interfaces';

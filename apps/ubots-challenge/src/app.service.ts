@@ -1,6 +1,5 @@
 import { InjectQueue } from '@nestjs/bull';
-import { Inject, Injectable } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { Injectable } from '@nestjs/common';
 import { Queue } from 'bull';
 
 @Injectable()
